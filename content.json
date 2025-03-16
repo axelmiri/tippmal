@@ -1,0 +1,68 @@
+{
+    "groups": [
+        {
+            "name": "Cibi",
+            "icon": "assets/cibi.jpeg",
+            "questions": [
+                {
+                    "question": "Cosa posso mangiare?",
+                    "question_img": "asstets/cosa_si_manga.png",
+                    "answers": [
+                        "assets/brioche.jpeg",
+                        "assets/foo.jpeg",
+                        "assets/yo.png",
+                        "assets/x.gif"
+                    ],
+                    "correct": "Sì, la biroche è buona!"
+                },
+                {
+                    "question": "Cosa non posso mangiare?",
+                    "question_img": "asstets/cosa_non_si_manga.png",
+                    "answers": [
+                        "assets/cacca.jpeg",
+                        "assets/pasta.jpeg",
+                        "assets/pizza.png",
+                        "assets/gelato.gif"
+                    ],
+                    "correct": "Sì, la cacca non si mangia!"
+                }
+            ]
+        },
+        {
+            "name": "Wie",
+            "icon": "assets/attivita.jpeg",
+            "questions": [
+                {
+                    "question": "Was ist rot?",
+                    "question_img": "asstets/rot.png",
+                    "answers": [
+                        "assets/brioche.jpeg",
+                        "assets/foo.jpeg",
+                        "assets/yo.png",
+                        "assets/x.gif"
+                    ],
+                    "correct": "Sì, la biroche è buona!"
+                },
+                {
+                    "question": "Was ist gelb?",
+                    "question_img": "asstets/gelb.png",
+                    "answers": [
+                        "assets/cacca.jpeg",
+                        "assets/pasta.jpeg",
+                        "assets/pizza.png",
+                        "assets/gelato.gif"
+                    ],
+                    "correct": "Sì, la cacca non si mangia!"
+                }
+            ]
+        }
+    ],
+    "correct_sounds": [
+        "assets/ja.mp3",
+        "assets/super.wav"
+    ],
+    "wrong_sounds": [
+        "assets/nein.mp3",
+        "assets/falsch.wav"
+    ]
+}
