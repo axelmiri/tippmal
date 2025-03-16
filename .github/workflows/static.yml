@@ -31,7 +31,7 @@ jobs:
     - name: Install ESLint
       run: yarn add eslint
     - name: Run ESLint
-      run: yarn eslint . --ext .js,.jsx,.ts,.tsx,.json
+      run: yarn eslint . --ext .js,.jsx,.ts,.tsx
   deploy:
     environment:
       name: github-pages
