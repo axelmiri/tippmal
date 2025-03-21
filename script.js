@@ -84,13 +84,18 @@ function showCorrectScreen(group, questionIndex) {
 
     document.addEventListener(
         "click",
-        () => {
-            if (questionIndex >= group.questions.length - 1) {
-                showStartScreen();
-                return;
-            }
-            showQuestion(group, questionIndex + 1);
-        },
+        () =>
+            document.addEventListener(
+                "click",
+                () => {
+                    if (questionIndex >= group.questions.length - 1) {
+                        showStartScreen();
+                        return;
+                    }
+                    showQuestion(group, questionIndex + 1);
+                },
+                { once: true }
+            ),
         { once: true }
     );
 }
