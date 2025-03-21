@@ -40,9 +40,9 @@ function showQuestion(group, questionIndex = 0) {
     questionText.innerText = group.questions[questionIndex].question;
     questionImage.src =
         "https://axelmiri.github.io/tippmal/" +
-        group.questions[questionIndex].image;
+        group.questions[questionIndex].questionImage;
 
-    document.addEventListener(
+    questionContainer.addEventListener(
         "click",
         () => {
             showAnswers(group, questionIndex);
@@ -62,17 +62,18 @@ function showAnswers(group, questionIndex) {
     answers.sort(() => Math.random() - 0.5);
 
     for (const answer of answers) {
-        const button = document.createElement("button");
-        button.innerText = answer.text;
-        button.addEventListener("click", () => {
-            if (button.innerText === group.questions[questionIndex][0]) {
+        const img = document.createElement("img");
+        img.classList.add("grid-item");
+        img.src = answer;
+        img.addEventListener("click", () => {
+            if (img.src.includes(group.questions[questionIndex].answers[0])) {
                 showCorrectScreen(group, questionIndex);
                 pickRandom(correctSounds).play();
             } else {
                 pickRandom(wrongSounds).play();
             }
         });
-        answerContainer.appendChild(button);
+        answerContainer.appendChild(img);
     }
 }
 
@@ -82,7 +83,12 @@ function showCorrectScreen(group, questionIndex) {
     correctText.innerText = group.questions[questionIndex].correct;
 
     document.addEventListener(
+        "click",
         () => {
+            if (questionIndex >= group.questions.length - 1) {
+                showStartScreen();
+                return;
+            }
             showQuestion(group, questionIndex + 1);
         },
         { once: true }
@@ -95,6 +101,12 @@ function hideAll() {
     answerContainer.style.display = "none";
     question.style.display = "none";
     correctText.style.display = "none";
+    for (const child of answerContainer.children) {
+        child.style.display = "none";
+    }
+    for (const child of groupContainer.children) {
+        child.style.display = "none";
+    }
 }
 
 function pickRandom(array) {
