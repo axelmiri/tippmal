@@ -1,68 +1,51 @@
 {
     "groups": [
         {
-            "name": "Cibi",
-            "icon": "assets/cibi.jpeg",
+            "name": "Boh",
+            "icon": "assets/testwave.png",
             "questions": [
                 {
                     "question": "Cosa posso mangiare?",
-                    "question_img": "asstets/cosa_si_manga.png",
+                    "questionImg": "assets/testhackers.png",
                     "answers": [
-                        "assets/brioche.jpeg",
-                        "assets/foo.jpeg",
-                        "assets/yo.png",
-                        "assets/x.gif"
+                        "assets/testcookie.png",
+                        "assets/testmountains.jpg",
+                        "assets/testcad.jpg",
+                        "assets/testbiohazard.jpg"
                     ],
-                    "correct": "Sì, la brioche è buona!"
+                    "correct": "Sì, il biscotto è buono!"
                 },
                 {
-                    "question": "Cosa non posso mangiare?",
-                    "question_img": "asstets/cosa_non_si_manga.png",
+                    "question": "Chi è più sigma?",
+                    "questionImg": "assets/testhackers.png",
                     "answers": [
-                        "assets/cacca.jpeg",
-                        "assets/pasta.jpeg",
-                        "assets/pizza.png",
-                        "assets/gelato.gif"
+                        "assets/testlordsofcerts.jpg",
+                        "assets/testpsychonauts.jpg",
+                        "assets/testhomer.jpg",
+                        "assets/testdiscord.png"
                     ],
-                    "correct": "Sì, la cacca non si mangia!"
+                    "correct": "+1000000 di aura!"
                 }
             ]
         },
         {
-            "name": "Wie",
-            "icon": "assets/attivita.jpeg",
+            "name": "Mah",
+            "icon": "assets/testwave.png",
             "questions": [
                 {
-                    "question": "Was ist rot?",
-                    "question_img": "asstets/rot.png",
+                    "question": "Dov'è l'ape?",
+                    "question_img": "assets/testhackers.png",
                     "answers": [
-                        "assets/brioche.jpeg",
-                        "assets/foo.jpeg",
-                        "assets/yo.png",
-                        "assets/x.gif"
+                        "assets/Miri_ape.jpg",
+                        "assets/Miri_coccinella.jpg",
+                        "assets/testiqbitgrey.png",
+                        "assets/testpenrose.svg"
                     ],
-                    "correct": "Sì, la biroche è buona!"
-                },
-                {
-                    "question": "Was ist gelb?",
-                    "question_img": "asstets/gelb.png",
-                    "answers": [
-                        "assets/cacca.jpeg",
-                        "assets/pasta.jpeg",
-                        "assets/pizza.png",
-                        "assets/gelato.gif"
-                    ],
-                    "correct": "Sì, la cacca non si mangia!"
+                    "correct": "Bzzzzzzz!"
                 }
             ]
         }
     ],
-    "correct_sounds": [
-        "assets/ja.mp3",
-        "assets/super.wav"
-    ],
-    "wrong_sounds": [
-        "assets/nein.mp3",
-        "assets/falsch.wav"
-    ]
+    "correctSounds": ["assets/testcorrect.wav"],
+    "wrongSounds": ["assets/testwrong.wav"]
 }

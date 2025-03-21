@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Miri</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miri</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <span>Hello, World!</span>
-    <div class="grid-container">
-        <img class="grid-item" src="assets/Miri_ape.jpg">
-        <img class="grid-item" src="assets/Miri_ape.jpg">
-        <img class="grid-item" src="assets/Miri_coccinella.jpg">
-        <img class="grid-item" src="assets/Miri_coccinella.jpg">
-    </div>
-
-    <script src="scripts.js"></script>
-</body>
-
+    <body>
+        <div id="group-container"></div>
+        <div id="question-container">
+            <span id="question-text" />
+            <img id="question-image" title="Question" />
+        </div>
+        <span id="question" />
+        <div class="grid-container" id="answer-container"></div>
+        <span id="correct-text" />
+        <script src="script.js"></script>
+    </body>
 </html>
