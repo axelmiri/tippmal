@@ -1,6 +1,6 @@
-const content = await fetch(
-    "https://axelmiri.github.io/tippmal/content.json"
-).then((response) => response.json());
+const content = fetch("https://axelmiri.github.io/tippmal/content.json").then(
+    (response) => response.json()
+);
 
 const groupContainer = document.getElementById("group-container");
 const questionContainer = document.getElementById("question-container");
@@ -10,22 +10,24 @@ const questionText = document.getElementById("question-text");
 const questionImage = document.getElementById("question-image");
 const correctText = document.getElementById("correct-text");
 
-const correctSounds = content.correctSounds.forEach((sound) => {
-    new Audio(sound);
-});
-const wrongSounds = content.wrongSounds.forEach((sound) => {
-    new Audio(sound);
+let correctSounds = [];
+let wrongSounds = [];
+
+content.then((data) => {
+    correctSounds = data.correctSounds.map((sound) => new Audio(sound));
+    wrongSounds = data.wrongSounds.map((sound) => new Audio(sound));
+    showStartScreen(data);
 });
 
-function showStartScreen() {
+function showStartScreen(data) {
     hideAll();
     groupContainer.style.display = "block";
 
-    for (const group of content.groups) {
+    for (const group of data.groups) {
         const button = document.createElement("button");
         button.innerText = group.name;
         const img = document.createElement("img");
-        img.src = group.image;
+        img.src = "https://axelmiri.github.io/tippmal" + group.image;
         button.prepend(img);
         button.addEventListener("click", () => showQuestion(group));
         groupContainer.appendChild(button);
@@ -37,7 +39,8 @@ function showQuestion(group, questionIndex = 0) {
     questionContainer.style.display = "block";
 
     questionText.innerText = group.questions[questionIndex].question;
-    questionImage.src = group.questions[questionIndex].image;
+    questionImage.src =
+        "https://axelmiri.github.io/tippmal" + group.questions[questionIndex].image;
 
     document.addEventListener(
         "mousedown",
