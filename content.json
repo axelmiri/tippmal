@@ -2,11 +2,11 @@
     "groups": [
         {
             "name": "Boh",
-            "icon": "assets/testwave.png",
+            "image": "assets/testwave.png",
             "questions": [
                 {
                     "question": "Cosa posso mangiare?",
-                    "questionImg": "assets/testhackers.png",
+                    "questionImage": "assets/testhackers.png",
                     "answers": [
                         "assets/testcookie.png",
                         "assets/testmountains.jpg",
@@ -17,7 +17,7 @@
                 },
                 {
                     "question": "Chi è più sigma?",
-                    "questionImg": "assets/testhackers.png",
+                    "questionImage": "assets/testhackers.png",
                     "answers": [
                         "assets/testlordsofcerts.jpg",
                         "assets/testpsychonauts.jpg",
@@ -30,11 +30,11 @@
         },
         {
             "name": "Mah",
-            "icon": "assets/testwave.png",
+            "image": "assets/testwave.png",
             "questions": [
                 {
                     "question": "Dov'è l'ape?",
-                    "question_img": "assets/testhackers.png",
+                    "questionImage": "assets/testhackers.png",
                     "answers": [
                         "assets/Miri_ape.jpg",
                         "assets/Miri_coccinella.jpg",
