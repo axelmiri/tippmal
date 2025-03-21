@@ -26,7 +26,9 @@ function showStartScreen() {
         const button = document.createElement("button");
         button.innerText = group.name;
         const img = document.createElement("img");
+        img.classList.add("grid-item");
         img.src = "https://axelmiri.github.io/tippmal/" + group.image;
+        button.prepend(document.createElement("br"));
         button.prepend(img);
         button.addEventListener("click", () => showQuestion(group));
         groupContainer.appendChild(button);
