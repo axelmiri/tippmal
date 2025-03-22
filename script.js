@@ -43,7 +43,6 @@ function showStartScreen() {
 function showQuestion(group, questionIndex = 0) {
     hideAll();
     questionContainer.style.display = "block";
-    document.documentElement.requestFullscreen();
 
     questionText.innerText = group.questions[questionIndex].question;
     questionImage.src = group.questions[questionIndex].questionImage;
