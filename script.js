@@ -9,7 +9,7 @@ const correctText = document.getElementById("correct-text");
 let content = {};
 let correctSounds = [];
 let wrongSounds = [];
-fetch("https://axelmiri.github.io/tippmal/content.json")
+fetch("content.json")
     .then((response) => response.json())
     .then((data) => {
         content = data;
@@ -27,7 +27,7 @@ function showStartScreen() {
         button.innerText = group.name;
         const img = document.createElement("img");
         img.classList.add("grid-item");
-        img.src = "https://axelmiri.github.io/tippmal/" + group.image;
+        img.src = group.image;
         button.prepend(document.createElement("br"));
         button.prepend(img);
         button.addEventListener("click", () => showQuestion(group));
@@ -40,9 +40,7 @@ function showQuestion(group, questionIndex = 0) {
     questionContainer.style.display = "block";
 
     questionText.innerText = group.questions[questionIndex].question;
-    questionImage.src =
-        "https://axelmiri.github.io/tippmal/" +
-        group.questions[questionIndex].questionImage;
+    questionImage.src = group.questions[questionIndex].questionImage;
 
     questionContainer.addEventListener(
         "click",
