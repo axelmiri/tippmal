@@ -10,7 +10,10 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "assets/favicon.jpg"
+            "src": "assets/favicon.png",
+            "sizes": "320x320",
+            "type": "image/png",
+            "purpose": "any"
         }
     ]
 }
