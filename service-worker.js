@@ -12,10 +12,19 @@ function getAssets(content) {
     ];
     for (const group of content.groups) {
         addIfNotPresent(assetsToCache, group.image);
-        for (const question of group.questions) {
-            addIfNotPresent(assetsToCache, question.questionImage);
-            for (const answerImage of question.answers) {
-                addIfNotPresent(assetsToCache, answerImage);
+        if (group.questions === "auto") {
+            for (let i = group.from; i <= group.to; i++) {
+                addIfNotPresent(
+                    assetsToCache,
+                    `${group.folder}/${i}.${group.type}`
+                );
+            }
+        } else {
+            for (const question of group.questions) {
+                addIfNotPresent(assetsToCache, question.questionImage);
+                for (const answerImage of question.answers) {
+                    addIfNotPresent(assetsToCache, answerImage);
+                }
             }
         }
     }

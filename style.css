@@ -61,9 +61,7 @@ button {
 
 .question-image {
     padding: 20px;
-    font-size: 30px;
-    text-align: center;
-    height: 30vh;
+    height: 50vh;
 }
 
 .question {
@@ -79,4 +77,9 @@ button {
     text-align: center;
     color: green;
     font-weight: bold;
+}
+
+.correct-image {
+    padding: 20px;
+    height: 50vh;
 }

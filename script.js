@@ -4,7 +4,9 @@ const answerContainer = document.getElementById("answer-container");
 const question = document.getElementById("question");
 const questionText = document.getElementById("question-text");
 const questionImage = document.getElementById("question-image");
+const correctContainer = document.getElementById("correct-container");
 const correctText = document.getElementById("correct-text");
+const correctImg = document.getElementById("correct-image");
 
 let content = {};
 let correctSounds = [];
@@ -49,17 +51,24 @@ function showStartScreen() {
         img.setAttribute("draggable", false);
         button.prepend(document.createElement("br"));
         button.prepend(img);
-        button.addEventListener("click", () => showQuestion(group));
+        button.addEventListener("click", () =>
+            showQuestion(group, group.questions === "auto" ? group.from : 0)
+        );
         groupContainer.appendChild(button);
     }
 }
 
-function showQuestion(group, questionIndex = 0) {
+function showQuestion(group, questionIndex) {
     hideAll();
     questionContainer.style.display = "block";
 
-    questionText.innerText = group.questions[questionIndex].question;
-    questionImage.src = group.questions[questionIndex].questionImage;
+    if (group.questions === "auto") {
+        questionText.innerText = "";
+        questionImage.src = `${group.folder}/${questionIndex}.${group.type}`;
+    } else {
+        questionText.innerText = group.questions[questionIndex].question;
+        questionImage.src = group.questions[questionIndex].questionImage;
+    }
     questionImage.setAttribute("draggable", false);
 
     questionContainer.addEventListener(
@@ -76,9 +85,21 @@ function showAnswers(group, questionIndex) {
     answerContainer.style.display = "block";
     question.style.display = "block";
 
-    question.innerText = group.questions[questionIndex].question;
+    let contentAnswers = [];
+    let answers = [];
+    if (group.questions === "auto") {
+        question.innerText = "";
+        for (let i = 1; i <= group.answers; i++) {
+            const answer = `${group.folder}/${questionIndex + i}.${group.type}`;
+            contentAnswers.push(answer);
+            answers.push(answer);
+        }
+    } else {
+        question.innerText = group.questions[questionIndex].question;
+        answers = [...group.questions[questionIndex].answers];
+        contentAnswers = group.questions[questionIndex].answers;
+    }
 
-    const answers = [...group.questions[questionIndex].answers];
     answers.sort(() => Math.random() - 0.5);
 
     for (const answer of answers) {
@@ -87,7 +108,7 @@ function showAnswers(group, questionIndex) {
         img.src = answer;
         img.setAttribute("draggable", false);
         img.addEventListener("click", () => {
-            if (img.src.includes(group.questions[questionIndex].answers[0])) {
+            if (img.src.includes(contentAnswers[0])) {
                 showCorrectScreen(group, questionIndex);
                 pickRandom(correctSounds).play();
             } else {
@@ -100,8 +121,15 @@ function showAnswers(group, questionIndex) {
 
 function showCorrectScreen(group, questionIndex) {
     hideAll();
-    correctText.style.display = "block";
-    correctText.innerText = group.questions[questionIndex].correct;
+    correctContainer.style.display = "block";
+    correctText.innerText =
+        group.questions === "auto"
+            ? "Sììì!"
+            : group.questions[questionIndex].correct;
+    correctImg.src =
+        group.questions === "auto"
+            ? `${group.folder}/${questionIndex + 1}.${group.type}`
+            : group.questions[questionIndex].answers[0];
 
     document.addEventListener(
         "click",
@@ -109,11 +137,19 @@ function showCorrectScreen(group, questionIndex) {
             document.addEventListener(
                 "click",
                 () => {
-                    if (questionIndex >= group.questions.length - 1) {
+                    if (
+                        questionIndex >=
+                        (group.questions === "auto"
+                            ? group.to
+                            : group.questions.length - 1)
+                    ) {
                         showStartScreen();
                         return;
                     }
-                    showQuestion(group, questionIndex + 1);
+                    showQuestion(
+                        group,
+                        questionIndex + (group.questions === "auto" ? 5 : 1)
+                    );
                 },
                 { once: true }
             ),
@@ -126,7 +162,7 @@ function hideAll() {
     questionContainer.style.display = "none";
     answerContainer.style.display = "none";
     question.style.display = "none";
-    correctText.style.display = "none";
+    correctContainer.style.display = "none";
     for (const child of answerContainer.children) {
         child.style.display = "none";
     }

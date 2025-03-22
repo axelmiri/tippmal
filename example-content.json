@@ -1,0 +1,65 @@
+{
+    "groups": [
+        {
+            "name": "Boh",
+            "image": "assets/testwave.png",
+            "questions": [
+                {
+                    "question": "Cosa posso mangiare?",
+                    "questionImage": "assets/testhackers.png",
+                    "answers": [
+                        "assets/testcookie.png",
+                        "assets/testmountains.jpg",
+                        "assets/testcad.jpg",
+                        "assets/testbiohazard.jpg"
+                    ],
+                    "correct": "Sì, il biscotto è buono!"
+                },
+                {
+                    "question": "Chi è più sigma?",
+                    "questionImage": "assets/testhackers.png",
+                    "answers": [
+                        "assets/testlordsofcerts.jpg",
+                        "assets/testpsychonauts.jpg",
+                        "assets/testhomer.jpg",
+                        "assets/testdiscord.png"
+                    ],
+                    "correct": "+1000000 di aura!"
+                }
+            ]
+        },
+        {
+            "name": "Mah",
+            "image": "assets/testwave.png",
+            "questions": [
+                {
+                    "question": "Dov'è l'ape?",
+                    "questionImage": "assets/testhackers.png",
+                    "answers": [
+                        "assets/Miri_ape.jpg",
+                        "assets/Miri_coccinella.jpg",
+                        "assets/testiqbitgrey.png",
+                        "assets/testpenrose.svg"
+                    ],
+                    "correct": "Bzzzzzzz!"
+                }
+            ]
+        }
+    ],
+    "correctSounds": [
+        "assets/sounds/Brava!.MP3",
+        "assets/sounds/Da!.MP3",
+        "assets/sounds/Good Job!.MP3",
+        "assets/sounds/Gut gemacht!.MP3",
+        "assets/sounds/Ja!.MP3",
+        "assets/sounds/Si!.MP3"
+    ],
+    "wrongSounds": [
+        "assets/sounds/Ma no!.MP3",
+        "assets/sounds/Nein!.MP3",
+        "assets/sounds/Niet!.MP3",
+        "assets/sounds/No!.MP3",
+        "assets/sounds/NOoOooO!!!.MP3",
+        "assets/sounds/Pfui!.MP3"
+    ]
+}
