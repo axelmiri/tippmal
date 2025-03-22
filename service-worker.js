@@ -39,7 +39,10 @@ self.addEventListener("install", (event) => {
                 });
             })
             .catch((error) => {
-                console.error("Failed to fetch content.json or cache assets:", error);
+                console.error(
+                    "Failed to fetch content.json or cache assets:",
+                    error
+                );
             })
     );
 });
