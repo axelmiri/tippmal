@@ -4,8 +4,8 @@
     "short_name": "TippMal",
     "description": "Un gioco di domande e risposte per bambini",
     "start_url": "/tippmal/",
-    "background_color": "#ffffff",
-    "theme_color": "#fff39c",
+    "background_color": "#f8f8f8",
+    "theme_color": "#f8f8f8",
     "orientation": "landscape",
     "display": "standalone",
     "icons": [

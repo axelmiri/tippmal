@@ -18,6 +18,10 @@ fetch("content.json")
         showStartScreen();
     });
 
+document.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+});
+
 function showStartScreen() {
     hideAll();
     groupContainer.style.display = "block";
@@ -28,6 +32,7 @@ function showStartScreen() {
         const img = document.createElement("img");
         img.classList.add("grid-item");
         img.src = group.image;
+        img.setAttribute("draggable", false);
         button.prepend(document.createElement("br"));
         button.prepend(img);
         button.addEventListener("click", () => showQuestion(group));
@@ -38,9 +43,11 @@ function showStartScreen() {
 function showQuestion(group, questionIndex = 0) {
     hideAll();
     questionContainer.style.display = "block";
+    document.documentElement.requestFullscreen();
 
     questionText.innerText = group.questions[questionIndex].question;
     questionImage.src = group.questions[questionIndex].questionImage;
+    questionImage.setAttribute("draggable", false);
 
     questionContainer.addEventListener(
         "click",
@@ -65,6 +72,7 @@ function showAnswers(group, questionIndex) {
         const img = document.createElement("img");
         img.classList.add("grid-item");
         img.src = answer;
+        img.setAttribute("draggable", false);
         img.addEventListener("click", () => {
             if (img.src.includes(group.questions[questionIndex].answers[0])) {
                 showCorrectScreen(group, questionIndex);
