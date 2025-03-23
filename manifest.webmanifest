@@ -1,8 +1,8 @@
 {
-    "lang": "it-it",
+    "lang": "de-de",
     "name": "TippMal",
     "short_name": "TippMal",
-    "description": "Un gioco di domande e risposte per bambini",
+    "description": "Ein Frage-Antwort-Spiel für Kleinkinder",
     "start_url": "/tippmal/",
     "background_color": "#f8f8f8",
     "theme_color": "#f8f8f8",
