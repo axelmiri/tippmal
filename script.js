@@ -138,7 +138,7 @@ function showCorrectScreen(group, questionIndex) {
     correctContainer.style.display = "block";
     correctText.innerText =
         group.questions === "auto"
-            ? "Sììì!"
+            ? "Ja!"
             : group.questions[questionIndex].correct;
     correctImg.src =
         group.questions === "auto"
