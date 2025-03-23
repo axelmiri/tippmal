@@ -85,19 +85,19 @@ function showAnswers(group, questionIndex) {
     answerContainer.style.display = "block";
     question.style.display = "block";
 
-    let contentAnswers = [];
+    let correctAnswer;
     let answers = [];
     if (group.questions === "auto") {
         question.innerText = "";
         for (let i = 1; i <= group.answers; i++) {
             const answer = `${group.folder}/${questionIndex + i}.${group.type}`;
-            contentAnswers.push(answer);
+            if (i == 1) correctAnswer = answer;
             answers.push(answer);
         }
     } else {
         question.innerText = group.questions[questionIndex].question;
         answers = [...group.questions[questionIndex].answers];
-        contentAnswers = group.questions[questionIndex].answers;
+        correctAnswer = group.questions[questionIndex].answers[0];
     }
 
     answers.sort(() => Math.random() - 0.5);
@@ -108,7 +108,7 @@ function showAnswers(group, questionIndex) {
         img.src = answer;
         img.setAttribute("draggable", false);
         img.addEventListener("click", () => {
-            if (img.src.includes(contentAnswers[0])) {
+            if (img.src.includes(correctAnswer)) {
                 showCorrectScreen(group, questionIndex);
                 pickRandom(correctSounds).play();
             } else {
@@ -140,7 +140,7 @@ function showCorrectScreen(group, questionIndex) {
                     if (
                         questionIndex >=
                         (group.questions === "auto"
-                            ? group.to
+                            ? group.to - group.answers
                             : group.questions.length - 1)
                     ) {
                         showStartScreen();
@@ -148,7 +148,8 @@ function showCorrectScreen(group, questionIndex) {
                     }
                     showQuestion(
                         group,
-                        questionIndex + (group.questions === "auto" ? 5 : 1)
+                        questionIndex +
+                            (group.questions === "auto" ? group.answers + 1 : 1)
                     );
                 },
                 { once: true }
