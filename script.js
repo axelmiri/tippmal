@@ -1,3 +1,4 @@
+const homeButton = document.getElementById("home-button");
 const groupContainer = document.getElementById("group-container");
 const questionContainer = document.getElementById("question-container");
 const answerContainer = document.getElementById("answer-container");
@@ -20,6 +21,8 @@ fetch("content.json")
         showStartScreen();
     });
 
+homeButton.addEventListener("click", showStartScreen);
+
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
 });
@@ -40,6 +43,7 @@ if ("serviceWorker" in navigator) {
 
 function showStartScreen() {
     hideAll();
+    homeButton.style.display = "none";
     groupContainer.style.display = "block";
 
     for (const group of content.groups) {
@@ -60,6 +64,7 @@ function showStartScreen() {
 
 function showQuestion(group, questionIndex) {
     hideAll();
+    homeButton.style.display = "block";
     questionContainer.style.display = "block";
 
     if (group.questions === "auto") {
@@ -109,10 +114,19 @@ function showAnswers(group, questionIndex) {
         img.setAttribute("draggable", false);
         img.addEventListener("click", () => {
             if (img.src.includes(correctAnswer)) {
-                showCorrectScreen(group, questionIndex);
                 pickRandom(correctSounds).play();
+                img.style.filter =
+                    "sepia(100%) saturate(500%) hue-rotate(30deg)";
+                setTimeout(() => {
+                    showCorrectScreen(group, questionIndex);
+                }, 500);
             } else {
                 pickRandom(wrongSounds).play();
+                img.style.filter =
+                    "sepia(100%) saturate(500%) hue-rotate(302deg)";
+                setTimeout(() => {
+                    showQuestion(group, questionIndex);
+                }, 500);
             }
         });
         answerContainer.appendChild(img);
@@ -133,27 +147,22 @@ function showCorrectScreen(group, questionIndex) {
 
     document.addEventListener(
         "click",
-        () =>
-            document.addEventListener(
-                "click",
-                () => {
-                    if (
-                        questionIndex >=
-                        (group.questions === "auto"
-                            ? group.to - group.answers
-                            : group.questions.length - 1)
-                    ) {
-                        showStartScreen();
-                        return;
-                    }
-                    showQuestion(
-                        group,
-                        questionIndex +
-                            (group.questions === "auto" ? group.answers + 1 : 1)
-                    );
-                },
-                { once: true }
-            ),
+        () => {
+            if (
+                questionIndex >=
+                (group.questions === "auto"
+                    ? group.to - group.answers
+                    : group.questions.length - 1)
+            ) {
+                showStartScreen();
+                return;
+            }
+            showQuestion(
+                group,
+                questionIndex +
+                    (group.questions === "auto" ? group.answers + 1 : 1)
+            );
+        },
         { once: true }
     );
 }
