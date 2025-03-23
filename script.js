@@ -151,7 +151,7 @@ function showCorrectScreen(group, questionIndex) {
             if (
                 questionIndex >=
                 (group.questions === "auto"
-                    ? group.to - group.answers
+                    ? group.to - group.answers - 1
                     : group.questions.length - 1)
             ) {
                 showStartScreen();
