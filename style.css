@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    touch-action: none;
+    touch-action: manipulation;
 }
 
 button {
