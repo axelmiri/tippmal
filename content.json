@@ -2,12 +2,12 @@
     "groups": [
         {
             "name": "Wo?",
-            "image": "assets/wo/1.png",
+            "image": "assets/wo/0.png",
             "questions": "auto",
             "folder": "assets/wo",
             "type": "png",
             "from": 1,
-            "to": 96,
+            "to": 95,
             "answers": 4
         }
     ],
