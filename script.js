@@ -43,7 +43,6 @@ if ("serviceWorker" in navigator) {
 
 function showStartScreen() {
     hideAll();
-    homeButton.style.display = "none";
     groupContainer.style.display = "block";
 
     for (const group of content.groups) {
@@ -64,7 +63,6 @@ function showStartScreen() {
 
 function showQuestion(group, questionIndex) {
     hideAll();
-    homeButton.style.display = "block";
     questionContainer.style.display = "block";
 
     if (group.questions === "auto") {

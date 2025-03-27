@@ -16,7 +16,7 @@ body {
 button {
     font-family: "Comic Sans MS", sans-serif;
     font-size: 20px;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
     background-color: white;
     color: black;
@@ -35,7 +35,11 @@ img {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: rgb(255, 234, 0);
+    background-color: white;
+}
+
+.home-button>img {
+    border-radius: 5px;
 }
 
 .grid-container {
