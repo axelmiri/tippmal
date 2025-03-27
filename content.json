@@ -2,7 +2,7 @@
     "groups": [
         {
             "name": "Wo?",
-            "image": "assets/wo/0.png",
+            "image": "assets/wo/1.png",
             "questions": "auto",
             "folder": "assets/wo",
             "type": "png",
@@ -18,6 +18,16 @@
             "type": "png",
             "from": 1,
             "to": 100,
+            "answers": 4
+        },
+        {
+            "name": "Wer?",
+            "image": "assets/wer/1.png",
+            "questions": "auto",
+            "folder": "assets/wer",
+            "type": "png",
+            "from": 1,
+            "to": 90,
             "answers": 4
         }
     ],
