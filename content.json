@@ -9,6 +9,16 @@
             "from": 1,
             "to": 95,
             "answers": 4
+        },
+        {
+            "name": "Was?",
+            "image": "assets/was/1.png",
+            "questions": "auto",
+            "folder": "assets/was",
+            "type": "png",
+            "from": 1,
+            "to": 100,
+            "answers": 4
         }
     ],
     "correctSounds": [
