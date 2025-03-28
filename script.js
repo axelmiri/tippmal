@@ -68,7 +68,7 @@ function startGroup(group) {
 function preprocess(group) {
     if (group.questions !== "auto") return;
     group.questions = [];
-    for (let i = group.from; i <= group.to; i+= group.answers + 1) {
+    for (let i = group.from; i <= group.to; i += group.answers + 1) {
         const question = {
             question: "",
             questionImage: `${group.folder}/${i}.${group.type}`,
