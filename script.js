@@ -54,24 +54,40 @@ function showStartScreen() {
         img.setAttribute("draggable", false);
         button.prepend(document.createElement("br"));
         button.prepend(img);
-        button.addEventListener("click", () =>
-            showQuestion(group, group.questions === "auto" ? group.from : 0)
-        );
+        button.addEventListener("click", () => startGroup(group));
         groupContainer.appendChild(button);
     }
+}
+
+function startGroup(group) {
+    preprocess(group);
+    showQuestion(group, 0);
+}
+
+function preprocess(group) {
+    if (group.questions !== "auto") return;
+    group.questions = [];
+    for (let i = group.from; i <= group.to; i+= group.answers + 1) {
+        const question = {
+            question: "",
+            questionImage: `${group.folder}/${i}.${group.type}`,
+            answers: [],
+            correct: "Ja!",
+        };
+        for (let j = 1; j <= group.answers; j++) {
+            question.answers.push(`${group.folder}/${i + j}.${group.type}`);
+        }
+        group.questions.push(question);
+    }
+    console.log(group.questions);
 }
 
 function showQuestion(group, questionIndex) {
     hideAll();
     questionContainer.style.display = "block";
 
-    if (group.questions === "auto") {
-        questionText.innerText = "";
-        questionImage.src = `${group.folder}/${questionIndex}.${group.type}`;
-    } else {
-        questionText.innerText = group.questions[questionIndex].question;
-        questionImage.src = group.questions[questionIndex].questionImage;
-    }
+    questionText.innerText = group.questions[questionIndex].question;
+    questionImage.src = group.questions[questionIndex].questionImage;
     questionImage.setAttribute("draggable", false);
 
     questionContainer.addEventListener(
@@ -90,19 +106,9 @@ function showAnswers(group, questionIndex) {
 
     let correctAnswer;
     let answers = [];
-    if (group.questions === "auto") {
-        question.innerText = "";
-        for (let i = 1; i <= group.answers; i++) {
-            const answer = `${group.folder}/${questionIndex + i}.${group.type}`;
-            if (i == 1) correctAnswer = answer;
-            answers.push(answer);
-        }
-    } else {
-        question.innerText = group.questions[questionIndex].question;
-        answers = [...group.questions[questionIndex].answers];
-        correctAnswer = group.questions[questionIndex].answers[0];
-    }
-
+    question.innerText = group.questions[questionIndex].question;
+    answers = [...group.questions[questionIndex].answers];
+    correctAnswer = group.questions[questionIndex].answers[0];
     answers.sort(() => Math.random() - 0.5);
 
     for (const answer of answers) {
@@ -134,32 +140,17 @@ function showAnswers(group, questionIndex) {
 function showCorrectScreen(group, questionIndex) {
     hideAll();
     correctContainer.style.display = "block";
-    correctText.innerText =
-        group.questions === "auto"
-            ? "Ja!"
-            : group.questions[questionIndex].correct;
-    correctImg.src =
-        group.questions === "auto"
-            ? `${group.folder}/${questionIndex + 1}.${group.type}`
-            : group.questions[questionIndex].answers[0];
+    correctText.innerText = group.questions[questionIndex].correct;
+    correctImg.src = group.questions[questionIndex].answers[0];
 
     document.addEventListener(
         "click",
         () => {
-            if (
-                questionIndex >=
-                (group.questions === "auto"
-                    ? group.to - group.answers - 1
-                    : group.questions.length - 1)
-            ) {
+            if (questionIndex >= group.questions.length - 1) {
                 showStartScreen();
                 return;
             }
-            showQuestion(
-                group,
-                questionIndex +
-                    (group.questions === "auto" ? group.answers + 1 : 1)
-            );
+            showQuestion(group, questionIndex + 1);
         },
         { once: true }
     );
