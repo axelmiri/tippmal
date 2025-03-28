@@ -61,6 +61,7 @@ function showStartScreen() {
 
 function startGroup(group) {
     preprocess(group);
+    group.questions.sort(() => Math.random() - 0.5);
     showQuestion(group, 0);
 }
 
