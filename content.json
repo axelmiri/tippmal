@@ -29,6 +29,26 @@
             "from": 1,
             "to": 90,
             "answers": 4
+        },
+        {
+            "name": "Bereiche 123",
+            "image": "assets/bereiche123/1.png",
+            "questions": "auto",
+            "folder": "assets/bereiche123",
+            "type": "png",
+            "from": 1,
+            "to": 90,
+            "answers": 4
+        },
+        {
+            "name": "Bereiche 456",
+            "image": "assets/bereiche456/1.png",
+            "questions": "auto",
+            "folder": "assets/bereiche456",
+            "type": "png",
+            "from": 1,
+            "to": 110,
+            "answers": 4
         }
     ],
     "correctSounds": [
