@@ -80,7 +80,6 @@ function preprocess(group) {
         }
         group.questions.push(question);
     }
-    console.log(group.questions);
 }
 
 function showQuestion(group, questionIndex) {
