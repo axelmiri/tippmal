@@ -1,4 +1,4 @@
-const CACHE_NAME = "tippmal-cache-v2";
+const CACHE_NAME = "tippmal-cache-v3";
 
 function getAssets(content) {
     const assetsToCache = [
