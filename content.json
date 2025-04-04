@@ -57,7 +57,16 @@
         "assets/sounds/Good Job!.MP3",
         "assets/sounds/Gut gemacht!.MP3",
         "assets/sounds/Ja!.MP3",
-        "assets/sounds/Si!.MP3"
+        "assets/sounds/Si!.MP3",
+        "assets/sounds/Applaus.MP3",
+        "assets/sounds/Bravissima.MP3",
+        "assets/sounds/Geggona.MP3",
+        "assets/sounds/Prima.MP3",
+        "assets/sounds/Stronghold.MP3",
+        "assets/sounds/Super super.MP3",
+        "assets/sounds/Yes.MP3",
+        "assets/sounds/You're the best.MP3",
+        "assets/sounds/Yuhuu!.MP3"
     ],
     "wrongSounds": [
         "assets/sounds/Ma no!.MP3",
@@ -65,6 +74,15 @@
         "assets/sounds/Niet!.MP3",
         "assets/sounds/No!.MP3",
         "assets/sounds/NOoOooO!!!.MP3",
-        "assets/sounds/Pfui!.MP3"
+        "assets/sounds/Pfui!.MP3",
+        "assets/sounds/Così non va bene.MP3",
+        "assets/sounds/Falsch.MP3",
+        "assets/sounds/It's wrong!.MP3",
+        "assets/sounds/It's wrong.MP3",
+        "assets/sounds/Ma noo!.MP3",
+        "assets/sounds/Nein, nein!.MP3",
+        "assets/sounds/Riprova.MP3",
+        "assets/sounds/Sbagliato.MP3",
+        "assets/sounds/Tutto sbagliato.MP3"
     ]
 }
