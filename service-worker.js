@@ -1,3 +1,4 @@
+const SERVICE_WORKER_VERSION = "v1.0.0-b";
 const CACHE_NAME = "tippmal-cache-v3";
 
 function getAssets(content) {
@@ -13,6 +14,16 @@ function getAssets(content) {
     for (const group of content.groups) {
         addIfNotPresent(assetsToCache, group.image);
         if (group.questions === "auto") {
+            const imageCount = group.to - group.from + 1;
+            if (imageCount % (group.answers + 1) !== 0) {
+                console.warn(
+                    `Group ${
+                        group.name
+                    } has an invalid range of images. The number of images (${imageCount}) must be divisible by the number of answers (${
+                        group.answers + 1
+                    }) + 1.`
+                );
+            }
             for (let i = group.from; i <= group.to; i++) {
                 addIfNotPresent(
                     assetsToCache,

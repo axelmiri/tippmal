@@ -49,6 +49,26 @@
             "from": 1,
             "to": 110,
             "answers": 4
+        },
+        {
+            "name": "English",
+            "image": "assets/english/1.jpg",
+            "questions": "auto",
+            "folder": "assets/english",
+            "type": "jpg",
+            "from": 1,
+            "to": 75,
+            "answers": 4
+        },
+        {
+            "name": "Math",
+            "image": "assets/math/1.jpg",
+            "questions": "auto",
+            "folder": "assets/math",
+            "type": "jpg",
+            "from": 1,
+            "to": 75,
+            "answers": 4
         }
     ],
     "correctSounds": [
