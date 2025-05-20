@@ -1,4 +1,4 @@
-const SERVICE_WORKER_VERSION = "v1.0.0-b";
+const SERVICE_WORKER_VERSION = "v1.0.0-c";
 const CACHE_NAME = "tippmal-cache-v3";
 
 function getAssets(content) {
