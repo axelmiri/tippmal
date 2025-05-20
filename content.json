@@ -2,12 +2,12 @@
     "groups": [
         {
             "name": "Wo?",
-            "image": "assets/wo/1.png",
+            "image": "assets/wo/1.jpg",
             "questions": "auto",
             "folder": "assets/wo",
-            "type": "png",
+            "type": "jpg",
             "from": 1,
-            "to": 95,
+            "to": 105,
             "answers": 4
         },
         {
@@ -22,30 +22,30 @@
         },
         {
             "name": "Wer?",
-            "image": "assets/wer/1.png",
+            "image": "assets/wer/1.jpg",
             "questions": "auto",
             "folder": "assets/wer",
-            "type": "png",
+            "type": "jpg",
             "from": 1,
-            "to": 90,
+            "to": 95,
             "answers": 4
         },
         {
             "name": "Bereiche 123",
-            "image": "assets/bereiche123/1.png",
+            "image": "assets/bereiche123/1.jpg",
             "questions": "auto",
             "folder": "assets/bereiche123",
-            "type": "png",
+            "type": "jpg",
             "from": 1,
-            "to": 90,
+            "to": 110,
             "answers": 4
         },
         {
             "name": "Bereiche 456",
-            "image": "assets/bereiche456/1.png",
+            "image": "assets/bereiche456/1.jpg",
             "questions": "auto",
             "folder": "assets/bereiche456",
-            "type": "png",
+            "type": "jpg",
             "from": 1,
             "to": 110,
             "answers": 4
