@@ -7,6 +7,7 @@ function getAssets(content) {
         "index.html",
         "style.css",
         "script.js",
+        "service-worker.js",
         "content.json",
         "assets/favicon.png",
         "manifest.webmanifest",
