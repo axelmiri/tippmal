@@ -1,4 +1,4 @@
-const SERVICE_WORKER_VERSION = "v1.0.0";
+const SERVICE_WORKER_VERSION = "v1.0.1";
 const CACHE_NAME = "tippmal-cache-v4";
 
 function getAssets(content) {
@@ -49,6 +49,7 @@ function getAssets(content) {
 }
 
 self.addEventListener("install", (event) => {
+    console.log(`Service Worker ${SERVICE_WORKER_VERSION} is installing...`);
     event.waitUntil(
         fetch("content.json")
             .then((response) => response.json())
@@ -68,6 +69,7 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
+    console.log(`Service Worker ${SERVICE_WORKER_VERSION} is activating...`);
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
@@ -82,6 +84,7 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+    console.log(`Service Worker ${SERVICE_WORKER_VERSION} is fetching:`, event.request.url);
     event.respondWith(
         caches.match(event.request).then((cachedResponse) => {
             const fetchPromise = fetch(event.request).then(
